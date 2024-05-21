@@ -5,16 +5,20 @@ See https://www.terraform.io/docs/providers/aws/guides/eks-getting-started.html 
 
 ## Download kubectl
 ```
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-chmod +x kubectl
-sudo mv kubectl /usr/local/bin
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
 ```
+https://gist.github.com/Zheaoli/335bba0ad0e49a214c61cbaaa1b20306
+https://github.com/aws/aws-cli/issues/6920
+https://github.com/kubernetes-sigs/aws-iam-authenticator/releases
+https://stackoverflow.com/questions/71318743/kubectl-versions-error-exec-plugin-is-configured-to-use-api-version-client-auth
 
 ## Download the aws-iam-authenticator
 ```
-wget https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.3.0/heptio-authenticator-aws_0.3.0_linux_amd64
-chmod +x heptio-authenticator-aws_0.3.0_linux_amd64
-sudo mv heptio-authenticator-aws_0.3.0_linux_amd64 /usr/local/bin/heptio-authenticator-aws
+wget https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.6.11/aws-iam-authenticator_0.6.11_darwin_amd64
+chmod +x aws-iam-authenticator_0.6.11_darwin_amd64
+sudo mv aws-iam-authenticator_0.6.11_darwin_amd64 /usr/local/bin/heptio-authenticator-aws
 ```
 
 ## Modify providers.tf
